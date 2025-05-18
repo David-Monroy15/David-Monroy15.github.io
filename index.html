@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ordenamiento Burbuja</title>
+</head>
+<body>
+
+  <center><h1 style="color: blue";">Ordenamiento de una lista con elementos desordenados</h1>
+ <h2><p>Ingresa los elementos en desorden separados por espacios:</p></h2>
+  <input style="color: blue;" type="text" id="entrada" placeholder="Ejemplo: 4 2 7 1 9">
+  <button style="color: blue;" onclick="ordenar()">Ordenar</button></center>
+
+  <center><h3><p id="listaDesordenada"></p>
+  <p id="listaOrdenada"></p></center></h3>
+  
+  <div style="height: 200px;"></div>
+  <h4><p style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Realizado por: 
+    <ul>
+        <li>Diego Armando Hernandez Santana</li>
+        <li>Monica Isabel Mandujano Zavala </li>
+        <li>David Monroy Flores</li>
+        <li>Carolina Ramirez Martinez</li>
+    </ul>
+  </p></h4>
+  
+  <script>
+    function ordenar() {
+      let entrada = document.getElementById('entrada').value;
+      let arregloStr = entrada.trim().split(" ");
+      let arr = arregloStr.map(x => parseInt(x));
+
+      document.getElementById('listaDesordenada').textContent = 'Lista desordenada: ' + arr.join(', ');
+
+      let band = false;
+      while (!band) {
+        band = true;
+        for (let i = 0; i < arr.length - 1; i++) {
+          if (arr[i] > arr[i + 1]) {
+            let aux = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = aux;
+            band = false;
+          }
+        }
+      }
+
+      document.getElementById('listaOrdenada').textContent = 'Lista ordenada: ' + arr.join(', ');
+    }
+  </script>
+ 
+</body>
+</html>
+
+  
